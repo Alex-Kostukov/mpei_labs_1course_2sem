@@ -3,5 +3,5 @@
 *.res
 *.stat
 *.tvsconfig
-Win32
-Win64
+Win32/
+Win64/
