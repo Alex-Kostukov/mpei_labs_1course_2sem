@@ -1,1 +1,7 @@
-*.html
+*.local
+*.identcache
+*.res
+*.stat
+*.tvsconfig
+Win32
+Win64
