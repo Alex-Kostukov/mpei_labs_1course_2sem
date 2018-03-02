@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5D9E2995-757C-4324-96D0-7EF2F11387CA}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ProjectLab1_1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ProjectLab1_2.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ProjectLab1_3.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ProjectLab1_1">
+        <MSBuild Projects="ProjectLab1_1.dproj"/>
+    </Target>
+    <Target Name="ProjectLab1_1:Clean">
+        <MSBuild Projects="ProjectLab1_1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectLab1_1:Make">
+        <MSBuild Projects="ProjectLab1_1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectLab1_2">
+        <MSBuild Projects="ProjectLab1_2.dproj"/>
+    </Target>
+    <Target Name="ProjectLab1_2:Clean">
+        <MSBuild Projects="ProjectLab1_2.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectLab1_2:Make">
+        <MSBuild Projects="ProjectLab1_2.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectLab1_3">
+        <MSBuild Projects="ProjectLab1_3.dproj"/>
+    </Target>
+    <Target Name="ProjectLab1_3:Clean">
+        <MSBuild Projects="ProjectLab1_3.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectLab1_3:Make">
+        <MSBuild Projects="ProjectLab1_3.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ProjectLab1_1;ProjectLab1_2;ProjectLab1_3"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ProjectLab1_1:Clean;ProjectLab1_2:Clean;ProjectLab1_3:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ProjectLab1_1:Make;ProjectLab1_2:Make;ProjectLab1_3:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

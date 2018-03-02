@@ -1,7 +1,9 @@
+#Git ignore for RAD Studio files
 *.local
 *.identcache
 *.res
 *.stat
 *.tvsconfig
+__history/
 Win32/
 Win64/
