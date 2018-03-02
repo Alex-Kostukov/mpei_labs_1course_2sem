@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899/12/30 00:00:00.000.822,=C:\Users\Admin\Desktop\RAD projects labs\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.971,C:\Users\Admin\Desktop\RAD projects\Unit1.dfm=C:\Users\Admin\Desktop\RAD projects labs\Unit1.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.294,C:\Users\Admin\Desktop\Labs_mpei_1_course_2_sem.git\Unit1.pas=C:\Users\Admin\Desktop\RAD projects\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.614,C:\Users\Admin\Desktop\Labs_mpei_1_course_2_sem.git\ProjectLab1_1.dproj=C:\Users\Admin\Desktop\RAD projects\ProjectLab1_1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.966,=C:\Users\Admin\Desktop\RAD projects\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.515,C:\Users\Admin\Desktop\RAD projects labs\Unit1.pas=C:\Users\Admin\Desktop\RAD projects labs\Unit1_2.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.085,C:\Users\Admin\Desktop\RAD projects labs\Unit1_2.pas=</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.178,C:\Users\Admin\Desktop\RAD projects\Lab1.dproj=C:\Users\Admin\Desktop\RAD projects\Lab1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.963,C:\Users\Admin\Desktop\RAD projects\Lab1.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.971,C:\Users\Admin\Desktop\RAD projects\Unit1.pas=C:\Users\Admin\Desktop\RAD projects labs\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.719,C:\Users\Admin\Desktop\RAD projects labs\Lab1.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.074,C:\Users\Admin\Desktop\RAD projects labs\Lab1.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1_2.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.515,C:\Users\Admin\Desktop\RAD projects labs\Unit1.dfm=C:\Users\Admin\Desktop\RAD projects labs\Unit1_2.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.744,C:\Users\Admin\Desktop\RAD projects labs\Lab1_2.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.294,C:\Users\Admin\Desktop\Labs_mpei_1_course_2_sem.git\Unit1.dfm=C:\Users\Admin\Desktop\RAD projects\Unit1.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.529,C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj=C:\Users\Admin\Desktop\RAD projects labs\ProjectLab1_1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.056,C:\Users\Admin\Desktop\RAD projects\Project1.dproj=C:\Users\Admin\Desktop\RAD projects\Lab1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.027,C:\Users\Admin\Desktop\RAD projects labs\Lab1_2.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.612,C:\Users\Admin\Desktop\RAD projects labs\Lab1_2.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.738,C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.347,C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.610,=C:\Users\Admin\Desktop\RAD projects\Unit2.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.369,C:\Users\Admin\Desktop\RAD projects\Unit2.pas=</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.728,C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1_2.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.002,C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1_2.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.503,C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj=C:\Users\Admin\Desktop\RAD projects labs\Lab1_1.dproj</Transaction>
+    <Transaction>2018/03/01 19:50:53.000.380,C:\Users\Admin\Desktop\labs new ver\ProjectLab1_1.dproj=C:\Users\Admin\Desktop\Lab_1\ProjectLab1_1.dproj</Transaction>
+    <Transaction>2018/03/01 19:51:03.000.917,C:\Users\Admin\Desktop\labs new ver\Unit1.pas=C:\Users\Admin\Desktop\Lab_1\Unit1.pas</Transaction>
+    <Transaction>2018/03/01 19:51:03.000.917,C:\Users\Admin\Desktop\labs new ver\Unit1.dfm=C:\Users\Admin\Desktop\Lab_1\Unit1.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="3">
+	</ProjectSortOrder>
+</BorlandProject>

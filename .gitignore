@@ -1,7 +1,7 @@
--*.local	
--*.identcache	
--*.res	
--*.stat	
--*.tvsconfig	
--Win32/	
--Win64/
+*.local
+*.identcache
+*.res
+*.stat
+*.tvsconfig
+Win32/
+Win64/
