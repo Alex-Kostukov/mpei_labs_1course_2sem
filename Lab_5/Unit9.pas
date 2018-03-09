@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Unit7;
 
 type
   TForm9 = class(TForm)
@@ -47,7 +47,7 @@ begin
     substr := LowerCase(substr);
   end;
 
-  n := Pos(substr, str);
+  n := Search(str, substr);
 
   if n <> 0 then
   begin
