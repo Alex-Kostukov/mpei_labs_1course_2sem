@@ -11,10 +11,9 @@ object Form2: TForm2
   Font.Name = 'Consolas'
   Font.Style = []
   OldCreateOrder = False
-  OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
-  object Image: TImage
+  object Image1: TImage
     Left = 8
     Top = 160
     Width = 873
@@ -251,7 +250,7 @@ object Form2: TForm2
       TabOrder = 5
     end
   end
-  object RadioGroupFunction: TRadioGroup
+  object RadioGroup1: TRadioGroup
     Left = 368
     Top = 8
     Width = 185
@@ -262,11 +261,10 @@ object Form2: TForm2
     Font.Height = -13
     Font.Name = 'Consolas'
     Font.Style = []
-    ItemIndex = 0
     Items.Strings = (
       #1042#1072#1088#1080#1072#1085#1090' '#8470' 26'
-      #1042#1072#1088#1080#1072#1085#1090' '#8470' 5'
       #1042#1072#1088#1080#1072#1085#1090' '#8470' 13'
+      #1042#1072#1088#1080#1072#1085#1090' '#8470' 5'
       #1042#1072#1088#1080#1072#1085#1090' '#8470' 18')
     ParentFont = False
     TabOrder = 3
@@ -284,7 +282,6 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 4
-    OnClick = ButtonGraphClick
   end
   object Button2: TButton
     Left = 576
@@ -313,6 +310,5 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 6
-    OnClick = Button3Click
   end
 end
