@@ -7,11 +7,9 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Vcl.Grids,
   Vcl.Samples.Calendar, Vcl.ComCtrls, System.Win.TaskbarCore, Vcl.Taskbar,
-  Vcl.StdCtrls, Vcl.ToolWin, Vcl.AppAnalytics, Vcl.Samples.Gauges, Unit3;
+  Vcl.StdCtrls, Vcl.ToolWin, Vcl.AppAnalytics, Vcl.Samples.Gauges;
 
 type
-  func = function(x: real): real;
-
   TForm2 = class(TForm)
     GroupBox1: TGroupBox;
     GroupBox3: TGroupBox;
@@ -49,8 +47,6 @@ type
     Image: TImage;
     Edit1: TEdit;
     procedure ButtonGraphClick(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
-    procedure FormResize(Sender: TObject);
   private
     { Private declarations }
   public
@@ -64,33 +60,16 @@ implementation
 
 {$R *.dfm}
 
+type
+  func = function(var x: real): real;
+
 var
   origin, size: TPoint;
   graph: boolean = false;
 
-procedure TForm2.FormResize(Sender: TObject);
-begin
-//  GroupBoxRoot.Top := Height - 173;
-//  GroupBoxResult.Top := Height - 173;
-  Image.Width := Width - 32;
-  Image.Height := Height - 322;
-  origin.x := 30;
-  origin.Y := Image.Height - 20;
-  size.x := Image.Width - 60;
-  size.Y := Image.Height - 40;
-  { Если график был нарисован, надо его перерисовать }
-  if graph then
-    ButtonGraphClick(Sender);
-end;
-
-procedure TForm2.Button3Click(Sender: TObject);
-begin
-  close;
-end;
-
 procedure TForm2.ButtonGraphClick(Sender: TObject);
 var
-  xs, xe, ys, ye, x, Y: real;
+  xs, xe, ys, ye, x, y: real;
   f: func;
   hx, hy, i: integer;
 
@@ -141,57 +120,50 @@ begin
     ShowMessage('Выберите функцию');
     RadioGroupFunction.SetFocus;
     Exit;
-  end;
-  Case RadioGroupFunction.ItemIndex of
-    0:
-      f := f26;
-    1:
-      f := f5;
-    2:
-      f := f13;
-    3:
-      f := f18;
-  End;
-  f := f18;
-  graph := true;
+  end
+  else if RadioGroupFunction.ItemIndex = 0 then
+    // f := f1   - Заменить
+  else
+    // f := f2;    - Заменить
+    graph := true;
   Image.canvas.Pen.Color := Image.canvas.Brush.Color;
   Image.canvas.Rectangle(0, 0, Image.Width, Image.Height);
   Image.canvas.Pen.Color := clGray;
   Image.canvas.Pen.Style := psDash;
   for i := 1 to 10 do
   begin
-    Image.canvas.MoveTo(origin.x + size.x div 10 * i, origin.Y + 5);
-    Image.canvas.LineTo(origin.x + size.x div 10 * i, origin.Y - size.Y);
-    Image.canvas.MoveTo(origin.x - 5, origin.Y - size.Y div 10 * i);
-    Image.canvas.LineTo(origin.x + size.x, origin.Y - size.Y div 10 * i);
+    Image.canvas.MoveTo(origin.x + size.x div 10 * i, origin.y + 5);
+    Image.canvas.LineTo(origin.x + size.x div 10 * i, origin.y - size.y);
+    Image.canvas.MoveTo(origin.x - 5, origin.y - size.y div 10 * i);
+    Image.canvas.LineTo(origin.x + size.x, origin.y - size.y div 10 * i);
   end;
   Image.canvas.Pen.Color := clBlack;
   Image.canvas.Pen.Style := psSolid;
-  Image.canvas.MoveTo(origin.x, origin.Y + 5);
-  Image.canvas.LineTo(origin.x, origin.Y - size.Y);
-  Image.canvas.MoveTo(origin.x - 5, origin.Y);
-  Image.canvas.LineTo(origin.x + size.x, origin.Y);
+  Image.canvas.MoveTo(origin.x, origin.y + 5);
+  Image.canvas.LineTo(origin.x, origin.y - size.y);
+  Image.canvas.MoveTo(origin.x - 5, origin.y);
+  Image.canvas.LineTo(origin.x + size.x, origin.y);
   x := xs;
-  Y := ys;
+  y := ys;
   for i := 0 to 10 do
   begin
-    Image.canvas.TextOut(origin.x + size.x div 10 * i - 5, origin.Y + 7,
+    Image.canvas.TextOut(origin.x + size.x div 10 * i - 5, origin.y + 7,
       FloatToStrF(x, ffFixed, 2, 2));
-    Image.canvas.TextOut(origin.x - 27, origin.Y - size.Y div 10 * i - 5,
-      FloatToStrF(Y, ffFixed, 2, 2));
+    Image.canvas.TextOut(origin.x - 27, origin.y - size.y div 10 * i - 5,
+      FloatToStrF(y, ffFixed, 2, 2));
     x := x + (xe - xs) / 10;
-    Y := Y + (ye - ys) / 10;
+    y := y + (ye - ys) / 10;
   end;
   hx := trunc(size.x / (xe - xs));
-  hy := trunc(size.Y / (ys - ye));
+  hy := trunc(size.y / (ys - ye));
   Image.canvas.Pen.Color := clRed;
-  Image.canvas.MoveTo(origin.x, trunc(origin.Y + (f(xs) - ys) * hy));
+  Image.canvas.MoveTo(origin.x, trunc(origin.y + (f(xs) - ys) * hy));
   x := xs + (xe - xs) / 1000;
   for i := 1 to 1000 do
   begin
-    Y := f(x);
+    y := f(x);
     Image.canvas.LineTo(trunc(origin.x + (x - xs) * hx),
-      trunc(origin.Y + (Y - ys) * hy));
+      trunc(origin.y + (y - ys) * hy));
     x := x + (xe - xs) / 1000;
   end;
 end;

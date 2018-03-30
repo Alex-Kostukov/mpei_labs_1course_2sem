@@ -1,0 +1,35 @@
+unit Unit3;
+
+interface
+
+type
+  func = function(x: real): real;
+
+function f26(x: real): real;
+function f13(x: real): real;
+function f5(x: real): real;
+function f18(x: real): real;
+
+implementation
+
+function f26(x: real): real;
+begin
+  Result := exp^(sqr(-sin(x))) + (3 / (7 * x)) / (1 + sqrt(x)) - x;
+end;
+
+function f13(x: real): real;
+begin
+  Result := 1 / ((1.2 * sin(x) / cos(x)) + sqrt(x + 1)) - x;
+end;
+
+function f5(x: real): real;
+begin
+  Result := 1 / ((sqrt(5) + sin(0.1 * x) + ln(1 + x)) - x);
+end;
+
+function f18(x: real): real;
+begin
+  Result := sqrt(exp^(x / 3) - (6 * x * sin(x) / 7) - 0.3) - x;
+end;
+
+end.
