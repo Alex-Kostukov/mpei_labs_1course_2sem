@@ -48,6 +48,7 @@ type
     Button3: TButton;
     Image: TImage;
     EditSec: TEdit;
+    GroupBox2: TGroupBox;
     procedure ButtonGraphClick(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -73,21 +74,23 @@ procedure TForm2.FormResize(Sender: TObject);
 begin
   // GroupBoxRoot.Top := Height - 173;
   // GroupBoxResult.Top := Height - 173;
-  Image.Width := Width - 32;
-  Image.Height := Height - 322;
+//  GroupBox2.Top := Height - 190;
+//  Image.Width := Width - 32;
+//  Image.Height := Height - 322;
   origin.x := 30;
   origin.Y := Image.Height - 20;
   size.x := Image.Width - 60;
   size.Y := Image.Height - 40;
-  { Если график был нарисован, надо его перерисовать }
+  { Р•СЃР»Рё РіСЂР°С„РёРє Р±С‹Р» РЅР°СЂРёСЃРѕРІР°РЅ, РЅР°РґРѕ РµРіРѕ РїРµСЂРµСЂРёСЃРѕРІР°С‚СЊ }
   if graph then
     ButtonGraphClick(Sender);
 end;
 
 procedure TForm2.Button2Click(Sender: TObject);
 var
-  x1, x2, e, factor, resX, resN: real;
+  x1, x2, e, factor, resX: real;
   f: func;
+  resN: integer;
 begin
   x1 := STRTOFLOAT(EditBorderLeft.Text);
   x2 := STRTOFLOAT(EditBorderRight.Text);
@@ -105,16 +108,16 @@ begin
       f := f18;
   End;
   SolutionSec(x1, x2, e, f, resX, resN);
-  EditSec.Text := resX;
-  EditSecN.Text := resN;
+  EditSec.Text := FloatToStr(resX);
+  EditSecN.Text := FloatToStr(resN);
 
   SolutionIt(x1, factor, e, f, resX, resN);
-  EditIt.Text := resX;
-  EditItN.Text := resN;
+  EditIt.Text := FloatToStr(resX);
+  EditItN.Text := FloatToStr(resN);
 
-  SolutionN(x1, factor, e, f, resX, resN);
-  EditN.Text := resX;
-  EditNn.Text := resN;
+  SolutionN(x1, e, f, resX, resN);
+  EditN.Text := FloatToStr(resX);
+  EditNn.Text := FloatToStr(resN);
 end;
 
 procedure TForm2.Button3Click(Sender: TObject);
@@ -127,66 +130,70 @@ var
   xs, xe, ys, ye, x, Y: real;
   f: func;
   hx, hy, i: integer;
-
 begin
-
+  { РџСЂРѕРІРµСЂСЏРµРј РґР°РЅРЅС‹Рµ }
   try
     xs := STRTOFLOAT(EditXs.Text);
   except
-    ShowMessage('Введите начальное значение по оси X');
+    ShowMessage('Р’РІРµРґРёС‚Рµ РЅР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕ РѕСЃРё X');
     EditXs.SetFocus;
     Exit;
   end;
   try
     xe := STRTOFLOAT(EditXe.Text);
   except
-    ShowMessage('Введите конечное значение по оси X');
+    ShowMessage('Р’РІРµРґРёС‚Рµ РєРѕРЅРµС‡РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕ РѕСЃРё X');
     EditXe.SetFocus;
     Exit;
   end;
   if xs >= xe then
   begin
-    ShowMessage('Начальное значение по оси X должно быть меньше конечного');
+    ShowMessage('РќР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕ РѕСЃРё X РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ РєРѕРЅРµС‡РЅРѕРіРѕ');
     EditXs.SetFocus;
     Exit;
   end;
   try
     ys := STRTOFLOAT(EditYs.Text);
   except
-    ShowMessage('Введите начальное значение по оси Y');
+    ShowMessage('Р’РІРµРґРёС‚Рµ РЅР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕ РѕСЃРё Y');
     EditYs.SetFocus;
     Exit;
   end;
   try
     ye := STRTOFLOAT(EditYe.Text);
   except
-    ShowMessage('Введите конечное значение по оси Y');
+    ShowMessage('Р’РІРµРґРёС‚Рµ РєРѕРЅРµС‡РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕ РѕСЃРё Y');
     EditYe.SetFocus;
     Exit;
   end;
   if ys >= ye then
   begin
-    ShowMessage('Начальное значение по оси Y должно быть меньше конечного');
+    ShowMessage('РќР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕ РѕСЃРё Y РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ РєРѕРЅРµС‡РЅРѕРіРѕ');
     EditYs.SetFocus;
     Exit;
   end;
   if RadioGroupFunction.ItemIndex = -1 then
   begin
-    ShowMessage('Выберите функцию');
+    ShowMessage('Р’С‹Р±РµСЂРёС‚Рµ С„СѓРЅРєС†РёСЋ');
     RadioGroupFunction.SetFocus;
     Exit;
-  end;
-  Case RadioGroupFunction.ItemIndex of
-    0:
-      f := f26;
-    1:
-      f := f5;
-    2:
-      f := f13;
-    3:
-      f := f18;
-  End;
+  end
+  else
+    Case RadioGroupFunction.ItemIndex of
+
+      0:
+        f := f26;
+      1:
+        f := f5;
+      2:
+        f := f13;
+      3:
+        f := f18;
+    End;
   graph := true;
+  { Р РёСЃСѓРµРј Рё РїРѕРґРїРёСЃС‹РІР°РµРј РѕСЃРё  Рё РєРѕРѕСЂРґРёРЅР°С‚РЅСѓСЋ СЃРµС‚РєСѓ. size вЂ“ РїРµСЂРµРјРµРЅРЅР°СЏ С‚РёРїР° TPoint, РІ РєРѕС‚РѕСЂРѕР№ С…СЂР°РЅРёС‚СЃСЏ СЂР°Р·РјРµСЂ
+    СЌР»РµРјРµРЅС‚Р° РёР·РѕР±СЂР°Р¶РµРЅРёРµ. origin вЂ“ РїРµСЂРµРјРµРЅРЅР°СЏ С‚РёРїР°  TPoint, РІ РєРѕС‚РѕСЂРѕР№ С…СЂР°РЅРёС‚СЃСЏ СЌРєСЂР°РЅРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹
+    С‚РѕС‡РєРё РЅР°С‡Р°Р»Р° РєРѕРѕСЂРґРёРЅР°С‚ РіСЂР°С„РёРєР°. Р—РЅР°С‡РµРЅРёСЏ СЌС‚РёС… РїРµСЂРµРјРµРЅРЅС‹С… РѕРїСЂРµРґРµР»СЏСЋС‚СЃСЏ РІ РѕР±СЂР°Р±РѕС‚С‡РёРєРµ СЃРѕР±С‹С‚РёСЏ OnResize. }
   Image.canvas.Pen.Color := Image.canvas.Brush.Color;
   Image.canvas.Rectangle(0, 0, Image.Width, Image.Height);
   Image.canvas.Pen.Color := clGray;
@@ -215,6 +222,7 @@ begin
     x := x + (xe - xs) / 10;
     Y := Y + (ye - ys) / 10;
   end;
+  { Р РёСЃСѓРµРј РіСЂР°С„РёРє С„СѓРЅРєС†РёРё }
   hx := trunc(size.x / (xe - xs));
   hy := trunc(size.Y / (ys - ye));
   Image.canvas.Pen.Color := clRed;

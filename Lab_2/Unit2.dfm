@@ -21,7 +21,7 @@ object Form2: TForm2
     Height = 273
   end
   object GroupBox1: TGroupBox
-    Left = 8
+    Left = 17
     Top = 8
     Width = 345
     Height = 145
@@ -146,13 +146,13 @@ object Form2: TForm2
       TabOrder = 1
     end
     object EditEPS: TEdit
-      Left = 16
+      Left = 17
       Top = 98
       Width = 91
       Height = 23
       TabOrder = 2
     end
-    object EditRate: TEdit
+    object EditFactor: TEdit
       Left = 129
       Top = 98
       Width = 98
@@ -208,42 +208,42 @@ object Form2: TForm2
       Height = 15
       Caption = #1052#1077#1090#1086#1076' '#1053#1100#1102#1090#1086#1085#1072
     end
-    object Edit9: TEdit
+    object EditItN: TEdit
       Left = 264
       Top = 104
       Width = 160
       Height = 23
       TabOrder = 0
     end
-    object Edit10: TEdit
+    object EditN: TEdit
       Left = 440
       Top = 44
       Width = 160
       Height = 23
       TabOrder = 1
     end
-    object Edit11: TEdit
+    object EditNn: TEdit
       Left = 438
       Top = 104
       Width = 160
       Height = 23
       TabOrder = 2
     end
-    object Edit12: TEdit
+    object EditIt: TEdit
       Left = 266
       Top = 44
       Width = 160
       Height = 23
       TabOrder = 3
     end
-    object Edit13: TEdit
+    object EditSecN: TEdit
       Left = 88
       Top = 104
       Width = 160
       Height = 23
       TabOrder = 4
     end
-    object Edit1: TEdit
+    object EditSec: TEdit
       Left = 88
       Top = 44
       Width = 160
@@ -299,6 +299,7 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 5
+    OnClick = Button2Click
   end
   object Button3: TButton
     Left = 576
