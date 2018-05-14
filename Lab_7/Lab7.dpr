@@ -1,4 +1,4 @@
-program Lab7;
+п»їprogram Lab7;
 
 uses
   Vcl.Forms,
@@ -11,7 +11,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.Title := 'Рекурсия';
+  Application.Title := 'Р РµРєСѓСЂСЃРёСЏ';
   Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

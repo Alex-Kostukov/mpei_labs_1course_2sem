@@ -1,30 +1,74 @@
 unit UnitFunc;
 
 interface
+
 uses
   UnitType;
 
-function Checking (const a : TMas; n1, n2 : integer; x:integer) : boolean;
-function Sum (const a : TMas; n1, n2 : integer;x:integer) : integer;
+type
+  ty_range = record
+    value1: integer;
+    value2: integer;
+  End;
+
+function CheckingTask13(const a: TMas; n1, n2: integer;
+  range: ty_range): boolean;
+function CheckingTask26(const a: TMas; n1, n2: integer;
+  range: ty_range): boolean;
+
+function SolveTask13_2(const a: TMas; n1, n2: integer): integer;
+function SolveTask26_2(const a: TMas; n1, n2: integer): integer;
 
 implementation
 
-function Checking (const a : TMas; n1, n2 : integer; x : integer) : boolean;
+function CheckingTask26(const a: TMas; n1, n2: integer;
+  range: ty_range): boolean;
 begin
   if n1 = n2 then
-     Checking:= a[n1] mod x = 0
-  else
-    Checking := (a[n1] mod x = 0)  or Checking (a, n1 + 1, n2, x);
+    result := (a[n1] >= range.value1) and (a[n1] <= range.value2)
+  else if n1 < n2 then
+    if (a[n1] >= range.value1) and (a[n1] <= range.value2) then
+      result := CheckingTask26(a, n1 + 1, n2, range)
+    else
+      result := false;
+
 end;
 
-function Sum (const a : TMas; n1, n2 : integer;x:integer) : integer;
+function SolveTask26_2(const a: TMas; n1, n2: integer): integer;
+begin
+  if n1 <> n2 then
+    if sqrt(abs(a[n1])) < n1 then
+      result := a[n1] + SolveTask26_2(a, n1 + 1, n2)
+    else
+      result := SolveTask26_2(a, n1 + 1, n2)
+  else if sqrt(abs(a[n1])) < n1 then
+    result := a[n1]
+  else
+    result := 0;
+end;
+
+function CheckingTask13(const a: TMas; n1, n2: integer;
+  range: ty_range): boolean;
 begin
   if n1 = n2 then
-    if (a[n1] mod x=0) then
-      Result :=1
-    else
-      Result := 0
+    CheckingTask13 := ((abs(a[n1]) >= range.value1) and
+      (abs(a[n1]) <= range.value2))
   else
-    Result := Sum (a, n1, (n1 + n2)div 2,x) + Sum (a, (n1 + n2)div 2 + 1, n2,x);
+    CheckingTask13 := ((abs(a[n1]) >= range.value1) and
+      (abs(a[n1]) <= range.value2)) or CheckingTask13(a, n1 + 1, n2, range);
 end;
+
+function SolveTask13_2(const a: TMas; n1, n2: integer): integer;
+begin
+  if n1 <> n2 then
+    if a[n1] > n1 then
+      result := 1 + SolveTask13_2(a, n1 + 1, n2)
+    else
+      result := SolveTask13_2(a, n1 + 1, n2)
+  else if a[n1] > n1 then
+    result := 1
+  else
+    result := 0;
+end;
+
 end.

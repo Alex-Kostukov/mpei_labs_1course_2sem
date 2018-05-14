@@ -9,15 +9,13 @@ uses
   Vcl.StdCtrls, UnitType, UnitFunc;
 
 type
-  TForm1 = class(TForm)
+  TForm1 = class(TFORM)
     MainMenu: TMainMenu;
     NTask: TMenuItem;
     N2: TMenuItem;
     NLoad: TMenuItem;
     NSave: TMenuItem;
     N5: TMenuItem;
-    NOne: TMenuItem;
-    NTwo: TMenuItem;
     NExit: TMenuItem;
     Label1: TLabel;
     EditN: TEdit;
@@ -34,13 +32,20 @@ type
     EditRange2: TEdit;
     N131: TMenuItem;
     N261: TMenuItem;
-    procedure NExitClick(Sender: TObject);
+    Label3: TLabel;
+    EditThree: TEdit;
+    EditFour: TEdit;
+    Label6: TLabel;
+    procedure ExitClick(Sender: TObject);
     procedure EditNChange(Sender: TObject);
-    procedure NTwoClick(Sender: TObject);
-    procedure NClickSolve13_1(Sender: TObject);
-    procedure NTask13Click(Sender: TObject);
-    procedure NLoadClick(Sender: TObject);
-    procedure NSaveClick(Sender: TObject);
+    // procedure NTwoClick(Sender: TObject);
+    procedure ClickSolve13_1(a: TMas; n: integer; range: ty_range);
+    procedure ClickSolve26_1(a: TMas; n: integer; range: ty_range);
+    procedure Task13Click(Sender: TObject);
+    procedure LoadClick(Sender: TObject);
+    procedure SaveClick(Sender: TObject);
+    procedure Solve(Sender: TObject);
+    procedure Task26Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,7 +59,7 @@ implementation
 
 {$R *.dfm}
 
-procedure InputMassiv(var n: integer; var a: TMas);
+procedure InputMassive(var n: integer; var a: TMas);
 var
   i: integer;
 begin
@@ -73,12 +78,12 @@ begin
     StringGridMassiv.Cells[i, 0] := IntToStr(i);
 end;
 
-procedure TForm1.NExitClick(Sender: TObject);
+procedure TForm1.ExitClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TForm1.NLoadClick(Sender: TObject);
+procedure TForm1.LoadClick(Sender: TObject);
 var
   a: TMas;
   n: integer;
@@ -114,32 +119,31 @@ begin
   end;
 end;
 
-procedure TForm1.NClickSolve13_1(Sender: TObject);
+procedure TForm1.Task26Click(Sender: TObject);
 var
-  a: TMas;
-  res: boolean;
-  n: integer;
-  x: integer;
+  s, s1, s2: string;
 begin
-  InputMassiv(n, a);
+  s := 'Разработать две рекурсивные функции для обработки одномерного динамического массива. В первой функции реализовать линейную рекурсию, во второй – каскадную.';
+  s1 := '1.  Проверить, что в одномерном массиве нет элементов, не попадающих в заданный диапазон.';
+  s2 := '2.  Для заданного одномерного массива a из n элементов найти сумму элементов массива, для которых выполняется условие sqrt(abs(a[i])) < i.';
+  Application.MessageBox(PChar(s + #13#10 + s1 + #13#10 + s2), 'Условие',
+    MB_OK or MB_ICONINFORMATION);
+end;
 
-  try
-    x := StrToInt(EditK.Text);
-  except
-    ShowMessage('Введите заданное число');
-    EditK.SetFocus;
-    Exit;
-  end;
+procedure TForm1.ClickSolve13_1(a: TMas; n: integer; range: ty_range);
+var
+  res: boolean;
+begin
 
-  res := Checking(a, 0, n - 1, x);
+  res := CheckingTask13(a, 0, n, range);
   if res then
-    EditOne.Text := 'Есть'
+    EditOne.Text := 'True'
   else
-    EditOne.Text := 'Нет';
+    EditOne.Text := 'False';
 
 end;
 
-procedure TForm1.NSaveClick(Sender: TObject);
+procedure TForm1.SaveClick(Sender: TObject);
 var
   a: TMas;
   n: integer;
@@ -174,7 +178,7 @@ begin
   end;
 end;
 
-procedure TForm1.NTask13Click(Sender: TObject);
+procedure TForm1.Task13Click(Sender: TObject);
 var
   s, s1, s2: string;
 begin
@@ -185,19 +189,59 @@ begin
     MB_OK or MB_ICONINFORMATION);
 end;
 
-procedure TForm1.NTwoClick(Sender: TObject);
+procedure TForm1.Solve(Sender: TObject);
 var
   a: TMas;
   s: integer;
   n: integer;
-  x: integer;
+  range: ty_range;
 begin
-  InputMassiv(n, a);
 
-  x := StrToInt(EditK.Text);
+  InputMassive(n, a);
 
-  s := Sum(a, 0, n - 1, x);
-  EditTwo.Text := IntToStr(s);
+  try
+    range.value1 := StrToInt(EditRange1.Text);
+    range.value2 := StrToInt(EditRange2.Text);
+    if range.value1 > range.value2 then
+    begin
+      ShowMessage('Конечное значение диапазона должно быть больше начального');
+      EditRange1.SetFocus;
+    end;
+  except
+    ShowMessage('Введите заданное число');
+    EditRange1.SetFocus;
+    Exit;
+  end;
+  ClickSolve13_1(a, n, range);
+  EditTwo.Text := IntToStr(SolveTask13_2(a, 0, n - 1));
+  ClickSolve26_1(a, n, range);
+  EditFour.Text := IntToStr(SolveTask26_2(a, 0, n - 1));
 end;
+
+procedure TForm1.ClickSolve26_1(a: TMas; n: integer; range: ty_range);
+var
+  res: boolean;
+begin
+
+  res := CheckingTask26(a, 0, n, range);
+  if res then
+    EditThree.Text := 'True'
+  else
+    EditThree.Text := 'False';
+end;
+// procedure TForm1.NTwoClick(Sender: TObject);
+// var
+// a: TMas;
+// s: integer;
+// n: integer;
+// x: integer;
+// begin
+// InputMassiv(n, a);
+//
+// x := StrToInt(EditK.Text);
+//
+// s := Sum(a, 0, n - 1, x);
+// EditTwo.Text := IntToStr(s);
+// end;
 
 end.
