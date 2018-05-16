@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.953,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit3.pas=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\UnitOperations.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.083,=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit3.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.252,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Lab8.dproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.164,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.457,=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.164,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit1.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.159,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Lab8.dproj=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Lab8.dproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.525,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit2.pas=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\UnitType.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.227,=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.024,=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit2.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.525,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\UnitType.pas=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit2.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.252,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Lab8.dproj=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.164,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit1.dfm=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.457,=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.159,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Lab8.dproj=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Lab8.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.083,=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit3.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.164,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit1.pas=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.024,=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit2.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.953,C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\UnitOperations.pas=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit3.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.227,=C:\Users\anato\OneDrive\Документы\Embarcadero\Studio\Projects\8\Unit2.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Unit1.pas"/>

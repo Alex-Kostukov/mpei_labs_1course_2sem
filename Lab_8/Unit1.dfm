@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 512
-  Top = 233
+  Left = 505
+  Top = 290
   Caption = #1058#1080#1087#1080#1079#1080#1088#1086#1074#1072#1085#1085#1099#1081' '#1092#1072#1081#1083
   ClientHeight = 311
   ClientWidth = 564
@@ -35,7 +35,7 @@ object Form1: TForm1
     Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1101#1083#1077#1084#1077#1085#1090#1086#1074
   end
   object Label3: TLabel
-    Left = 24
+    Left = 28
     Top = 115
     Width = 200
     Height = 13
@@ -58,7 +58,7 @@ object Form1: TForm1
   object EditName: TEdit
     Left = 72
     Top = 16
-    Width = 321
+    Width = 473
     Height = 21
     Enabled = False
     TabOrder = 0
@@ -90,9 +90,9 @@ object Form1: TForm1
   end
   object ListBox: TListBox
     Left = 416
-    Top = 16
+    Top = 56
     Width = 129
-    Height = 281
+    Height = 241
     Anchors = [akLeft, akTop, akRight, akBottom]
     ItemHeight = 13
     TabOrder = 4
@@ -110,7 +110,14 @@ object Form1: TForm1
     Top = 248
     object NTask: TMenuItem
       Caption = #1059#1089#1083#1086#1074#1080#1077
-      OnClick = NTaskClick
+      object N131: TMenuItem
+        Caption = #1042#1072#1088#1080#1072#1085#1090' 13'
+        OnClick = NTask13Click
+      end
+      object N261: TMenuItem
+        Caption = #1042#1072#1088#1080#1072#1085#1090' 26'
+        OnClick = NTask26Click
+      end
     end
     object N2: TMenuItem
       Caption = #1058#1080#1087#1080#1079#1080#1088#1086#1074#1072#1085#1085#1099#1081' '#1092#1072#1081#1083
@@ -121,28 +128,63 @@ object Form1: TForm1
       object NRandom: TMenuItem
         Caption = #1057#1086#1079#1076#1072#1090#1100' '#1089#1083#1091#1095#1072#1081#1085#1099#1084' '#1086#1073#1088#1072#1079#1086#1084
         Enabled = False
-        OnClick = NRandomClick
+        object NRandom13: TMenuItem
+          Caption = #1042#1072#1088#1080#1072#1085#1090' 13'
+          OnClick = NRandom13Click
+        end
+        object NRandom26: TMenuItem
+          Caption = #1042#1072#1088#1080#1072#1085#1090' 26'
+          OnClick = NRandom26Click
+        end
       end
       object NTextFile: TMenuItem
         Caption = #1057#1086#1079#1076#1072#1090#1100' '#1080#1079' '#1090#1077#1082#1089#1090#1086#1074#1086#1075#1086' '#1092#1072#1081#1083#1072
         Enabled = False
-        OnClick = NTextFileClick
+        object N133: TMenuItem
+          Caption = 'File of Integer'
+          OnClick = NTextIntFileClick
+        end
+        object N263: TMenuItem
+          Caption = 'File of Real'
+          OnClick = NTextRealFileClick
+        end
       end
       object NFile: TMenuItem
         Caption = #1057#1086#1076#1077#1088#1078#1080#1084#1086#1077
         Enabled = False
-        OnClick = NFileClick
+        object NFileContent13: TMenuItem
+          Caption = 'File of Integer'
+          OnClick = NFileContent13Click
+        end
+        object NFileContent26: TMenuItem
+          Caption = 'File of Real'
+          OnClick = NFileContent26Click
+        end
       end
     end
     object N3: TMenuItem
       Caption = #1056#1077#1096#1077#1085#1080#1077
       object NFound: TMenuItem
         Caption = #1055#1086#1080#1089#1082' '#1101#1083#1077#1084#1077#1085#1090#1072
-        OnClick = NFoundClick
+        object NSearch13: TMenuItem
+          Caption = #1042#1072#1088#1080#1072#1085#1090' 13'
+          OnClick = NSearch13Click
+        end
+        object NSearch26: TMenuItem
+          Caption = #1042#1072#1088#1080#1072#1085#1090' 26'
+          OnClick = NSearch26Click
+        end
       end
       object NPerestanovka: TMenuItem
         Caption = #1055#1077#1088#1077#1089#1090#1072#1085#1086#1074#1082#1072' '#1101#1083#1077#1084#1077#1085#1090#1072
-        OnClick = NPerestanovkaClick
+        object NSwap13: TMenuItem
+          Caption = #1042#1072#1088#1080#1072#1085#1090' 13'
+          OnClick = NSwap13Click
+        end
+        object NSwap26: TMenuItem
+          Caption = #1042#1072#1088#1080#1072#1085#1090' 26'
+          OnClick = NSwap26Click
+        end
       end
     end
     object NExit: TMenuItem
