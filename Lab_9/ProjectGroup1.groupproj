@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{40978112-2B03-4B09-9F47-D35FC11AABB7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Lab9.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Lab_6\ProjectLab6.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Lab9">
+        <MSBuild Projects="Lab9.dproj"/>
+    </Target>
+    <Target Name="Lab9:Clean">
+        <MSBuild Projects="Lab9.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Lab9:Make">
+        <MSBuild Projects="Lab9.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectLab6">
+        <MSBuild Projects="..\Lab_6\ProjectLab6.dproj"/>
+    </Target>
+    <Target Name="ProjectLab6:Clean">
+        <MSBuild Projects="..\Lab_6\ProjectLab6.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectLab6:Make">
+        <MSBuild Projects="..\Lab_6\ProjectLab6.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Lab9;ProjectLab6"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Lab9:Clean;ProjectLab6:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Lab9:Make;ProjectLab6:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
