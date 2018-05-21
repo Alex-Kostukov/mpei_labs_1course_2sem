@@ -44,6 +44,18 @@ object Form1: TForm1
     GridLineWidth = 3
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goTabs, goAlwaysShowEditor]
     TabOrder = 0
+    ColWidths = (
+      85
+      85
+      85
+      85
+      85)
+    RowHeights = (
+      24
+      24
+      24
+      24
+      24)
   end
   object StringGridResult: TStringGrid
     Left = 8
@@ -52,6 +64,18 @@ object Form1: TForm1
     Height = 145
     GridLineWidth = 3
     TabOrder = 1
+    ColWidths = (
+      64
+      64
+      64
+      64
+      64)
+    RowHeights = (
+      24
+      24
+      24
+      24
+      24)
   end
   object EditRowCount: TEdit
     Left = 123
@@ -104,6 +128,7 @@ object Form1: TForm1
       end
       object NSolve26: TMenuItem
         Caption = #1042#1072#1088#1080#1072#1085#1090' 26'
+        OnClick = NSolve26Click
       end
     end
     object N6: TMenuItem

@@ -6,7 +6,21 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.Grids,
-  Vcl.Menus, Types;
+  Vcl.Menus;
+  type
+  TStudent = record
+    group: string[7];
+    name: string[30];
+    birthday: string[10];
+    sex: (null, male, female);
+    physics: integer;
+    math: integer;
+    informatics: integer;
+    stipend: integer;
+  end;
+
+type
+  TArrayOfStudents = array of TStudent;
 
 type
   TForm1 = class(TForm)
@@ -32,10 +46,11 @@ type
     procedure N6Click(Sender: TObject);
     procedure EditRowCountChange(Sender: TObject);
     procedure NSaveClick(Sender: TObject);
-    function ReadStudents(): TarrayofStudents;
+    function ReadStudents(): TArrayofStudents;
     procedure NLoadClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure NSolve13Click(Sender: TObject);
+    procedure NSolve26Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -193,6 +208,34 @@ begin
   StringGridResult.RowCount := StringGridResult.RowCount + 1;
   StringGridResult.Cells[0, j + 1] := 'Итого из A-4-10';
   StringGridResult.Cells[1, j + 1] := intToStr(counter);
+
+end;
+
+procedure TForm1.NSolve26Click(Sender: TObject);
+var
+  lt_students: TarrayofStudents;
+  i, j: integer;
+  s:string;
+begin
+  lt_students := ReadStudents();
+  StringGridResult.RowCount := 1;
+  StringGridResult.ColWidths[0] := 100;
+  StringGridResult.ColWidths[1] := 100;
+  StringGridResult.ColWidths[2] := 100;
+  StringGridResult.ColCount := 3;
+  StringGridResult.Cells[1, 0] := 'ФИО';
+  StringGridResult.Cells[2, 0] := 'Средний балл';
+  j := 1;
+  for i := 0 to High(lt_students) do
+   begin
+    if (lt_students[i].sex = male) and (lt_students[i].stipend = 0) then
+     StringGridResult.RowCount := StringGridResult.RowCount + 1;
+     StringGridResult.Cells[0, j] := intToStr(j);
+     StringGridResult.Cells[1, j] := lt_students[i].name;
+     str(((lt_students[i].physics + lt_students[i].math + lt_students[i].informatics)/3):5:2, s);
+     StringGridResult.Cells[2, j] := s;
+     j := j + 1;
+   end;
 
 end;
 
