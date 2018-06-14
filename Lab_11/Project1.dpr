@@ -1,14 +1,15 @@
-program ProjectLab10;
+program Project1;
 
 uses
   Vcl.Forms,
-  Unit15 in 'Unit15.pas' {Form15};
+  UnitForm in 'UnitForm.pas' {Form1},
+  UnitSort in 'UnitSort.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm15, Form15);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
